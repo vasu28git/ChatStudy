@@ -1,5 +1,6 @@
 # Ex. No:1b 			Study of Client Server Chat Applications
-
+**Name:** VASU VIGNESHWARAN P
+**Register Number:** 212224220119
 ## Aim: 
 To perform a study on Client Server Chat Applications
 ## Introduction:
@@ -12,7 +13,7 @@ Client-server chat applications are software systems that enable real-time commu
 •	It may handle user authentication, message routing, and other core functionalities.
 •	Client:
 •	Clients are users or devices that connect to the server to participate in the chat.
-•	Each client has a unique identity, often represented by a username.
+**Name:** SOWMYA BADONI
 •	Clients interact with the server to send and receive messages.
 ## 2. Communication Protocols:
 •	Communication between clients and servers often relies on established protocols. The choice of protocol influences the behavior of the chat application.
@@ -33,7 +34,7 @@ Client-server chat applications are software systems that enable real-time commu
 •	Socket programming involves functions for creating, binding, listening, accepting connections, and sending/receiving data through sockets.
 ## 4. User Authentication:
 •	For security and privacy, chat applications often implement user authentication mechanisms.
-•	Users are required to provide credentials (e.g., username and password) to access the chat system.
+**Name:** SOWMYA BADONI
 •	More advanced methods like tokens or secure protocols can enhance authentication.
 5. Message Routing:
 •	The server is responsible for routing messages from one client to another.
@@ -47,7 +48,7 @@ Client-server chat applications typically follow the client-server model, where 
 ## Communication Protocols:
 The choice of communication protocol is crucial. Many chat applications use TCP (Transmission Control Protocol) for reliable, connection-oriented communication to ensure the ordered and error-free exchange of messages.
 User Authentication:
-User authentication mechanisms are essential to ensure secure and authorized access to the chat system. This can involve username-password authentication or more advanced methods like tokens.
+**Name:** SOWMYA BADONI
 ## Components of Client-Server Chat Applications:
 ## Server-Side Components:
 
@@ -73,8 +74,65 @@ Client-server chat applications are versatile tools that facilitate real-time co
 
 Client-server chat applications are foundational to real-time communication over networks. They incorporate principles of socket programming, communication protocols, and security mechanisms to provide a seamless user experience. Understanding the basics of client-server chat applications is essential for developers involved in networked application development, as they form the backbone of various collaborative communication systems. As technology evolves, chat applications continue to adapt, incorporating new features and technologies to enhance user interaction and connectivity.
 
+## PROGRAM:
+### client:
+```python
+
+import socket
+
+client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+client.connect(("localhost", 9999))
+
+done=False
+
+while not done:
+    client.send(input("Message ").encode('utf-8'))
+    msg = client.recv(1024).decode('utf-8')
+
+    if msg == 'quit':
+        done=True
+    else:
+        print(msg)
+
+
+
+client.close()
+
+```
+### server
+```python
+import socket
+from base64 import decode
+from operator import truediv
+
+server =socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+server.bind(('localhost', 9999))
+server.listen()
+client,addr=server.accept()
+
+done = False
+
+while not done:
+    msg = client.recv(1024).decode('utf-8')
+
+    if msg == 'quit':
+        done = True
+    else:
+        print(msg)
+
+    client.send(input("Message ").encode('utf-8'))
+
+
+client.close()
+server.close()
+```
+
+## OUTPUT:
+![image](https://github.com/user-attachments/assets/38f681db-67d1-48b6-8858-dee48c5e4dc5)
+
+
 
 ## Result:
 
 Thus the study on Client Server Chat Applications has been performed
-
